@@ -665,6 +665,15 @@ module Omnibus
     end
     expose :move
 
+    def sleeping
+      command = "sleep 5 minutes"
+      build_commands << BuildCommand.new(command) do
+        log.info(log_key) { "sleeping 5 minutes" }
+        sleep 300
+      end
+    end
+    expose :sleeping
+
     #
     # Link the given source to the destination. This method accepts a single
     # file or a file pattern to match
